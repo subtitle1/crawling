@@ -32,3 +32,5 @@ def initialize_page(current_date, given_url):
             break
 
         previous = current
+
+    return driver

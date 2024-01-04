@@ -2,32 +2,11 @@ from common.web_imports import *
 from common.common_functions import get_next_date, initialize_dates
 
 today, current_date, end_date = initialize_dates(1, 6)
-
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--ignore-certificate-errors')
-
 df = initialize_columns()
 
 while current_date <= end_date:
-    formatted_date = current_date.strftime("%Y%m%d")
-    url = 'https://shoppinglive.naver.com/calendar?d=' + formatted_date
-
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-    driver.get(url)
-
-    previous = driver.execute_script("return document.body.scrollHeight")
-    interval = 5
-
-    while True:
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-        time.sleep(interval)
-        current = driver.execute_script("return document.body.scrollHeight")
-
-        if previous == current:
-            break
-
-        previous = current
+    given_url = 'https://shoppinglive.naver.com/calendar?d='
+    driver = initialize_page(current_date, given_url)
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
     items = soup.find_all('div', attrs={'class': 'VideoBoxWrapper_wrap_Usbk7 lico-home__sc-e630726c-0 fTvbot BroadcastSideCard_card_tBFMO'})

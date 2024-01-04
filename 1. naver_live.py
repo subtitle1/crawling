@@ -1,5 +1,4 @@
-# from web_common_imports import *
-from common.web_common_imports import *
+from common.web_imports import *
 from common.common_functions import get_next_date, initialize_dates
 
 today, current_date, end_date = initialize_dates(1, 6)
@@ -8,7 +7,7 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--ignore-certificate-errors')
 
-df = pd.DataFrame(columns=['카테고리', '서브카테고리', '브랜드명', '브랜드URL', '이벤트정보', '상품유형', '이벤트 기간', '라이브 URL'])
+df = initialize_columns()
 
 while current_date <= end_date:
     formatted_date = current_date.strftime("%Y%m%d")

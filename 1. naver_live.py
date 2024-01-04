@@ -1,17 +1,8 @@
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
-import time 
-import pandas as pd
+# from web_common_imports import *
+from common.web_common_imports import *
+from common.common_functions import get_next_date, initialize_dates
 
-def get_next_date(current_date):
-    return current_date + timedelta(days=1)
-
-today = datetime.now()
-current_date = today + timedelta(days=1)
-end_date = today + timedelta(days=6)
+today, current_date, end_date = initialize_dates(1, 6)
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--headless')

@@ -11,12 +11,11 @@ jsonData = None
 if requestData.status_code == 200 :
     jsonData = requestData.json()
     liveCatalogs = jsonData.get('pageProps', {}).get('initialStates', {}).get('schedule', {}).get('liveCatalogs', [])
-    # liveCatalogs = jsonData['pageProps']['initialStates']['schedule']['liveCatalogs']
 
 input_format = "%Y-%m-%dT%H:%M:%S"
 output_format = "%m/%d %H시 %M분"
 
-while True :
+while liveCatalogs:
     category = "라이브특가정보"
     sub_category = "G live 홈쇼핑"
 
@@ -39,12 +38,13 @@ while True :
                 start_live_time = datetime.strptime(start_live_time_str, input_format).strftime(output_format)
                 end_live_time = datetime.strptime(end_live_time_str, input_format).strftime(output_format)
 
-                # print(brand, brand_logo, start_live_time, live_url)
+                print(i)
                 df = pd.concat([df, pd.DataFrame([[category, sub_category, title, brand, '', '', category, '', start_live_time, end_live_time, live_url, brand_logo, image_url]], columns=df.columns)], ignore_index=True)
-
+            liveCatalogs.pop(0)
+                
     except Exception as e:
         print(f"오류가 발생했습니다: {e}")
         pass
 
-    address = "C:\\work\\"
-    df.to_excel(excel_writer = address + today.strftime("%Y%m%d") + '_G live.xlsx')
+address = "C:\\work\\"
+df.to_excel(excel_writer = address + today.strftime("%Y%m%d") + '_G live.xlsx')

@@ -7,13 +7,13 @@ df = initialize_columns(date_format=True)
 
 while current_date <= end_date :
     formatted_date = current_date.strftime("%Y%m%d")
-    url = 'https://display.cjonstyle.com/c/rest/tv/tvSchedule?bdDt=' + formatted_date + '&isMobile=false&broadType=live&isEmployee=false'
+    url = 'https://display.cjonstyle.com/c/rest/tv/tvSchedule?bdDt=' + formatted_date
     requestData = requests.get(url)
     jsonData = None
 
     if requestData.status_code == 200 :
         jsonData = requestData.json()
-        productList = jsonData["result"]["programList"]['itemList']
+        productList = jsonData["result"]
 
         print(productList)
 

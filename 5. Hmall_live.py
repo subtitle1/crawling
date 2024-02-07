@@ -37,7 +37,7 @@ while current_date <= end_date :
                 discounted_price = item['bbprc']
                 live_url = "https://www.hmall.com/pd/pda/itemPtc?slitmCd=" + item['slitmCd']
 
-                df = pd.concat([df, pd.DataFrame([[category, sub_category, title, brand, original_price, discounted_price, category, '', start_live_time, end_live_time, live_url, '']], columns=df.columns)], ignore_index=True)
+                df = pd.concat([df, pd.DataFrame([[category, sub_category, title, brand, original_price, discounted_price, category, '', start_live_time, end_live_time, live_url, '', '']], columns=df.columns)], ignore_index=True)
 
         except Exception as e:
             print(f"오류가 발생했습니다: {e}")

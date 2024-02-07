@@ -38,7 +38,6 @@ while liveCatalogs:
                 start_live_time = datetime.strptime(start_live_time_str, input_format).strftime(output_format)
                 end_live_time = datetime.strptime(end_live_time_str, input_format).strftime(output_format)
 
-                print(i)
                 df = pd.concat([df, pd.DataFrame([[category, sub_category, title, brand, '', '', category, '', start_live_time, end_live_time, live_url, brand_logo, image_url]], columns=df.columns)], ignore_index=True)
             liveCatalogs.pop(0)
                 

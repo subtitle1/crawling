@@ -8,7 +8,6 @@ df = initialize_columns()
 while current_date <= end_date :
     formatted_date = current_date.strftime("%Y%m%d")
     url = 'https://apis.11st.co.kr/pui/v2/page?pageId=LIVE11TIMETBLPAGE&carrSn=8276&metaCtgrNo=0&selectDate=' + formatted_date
-
     requestData = requests.get(url)
     jsonData = None
 
@@ -20,7 +19,7 @@ while current_date <= end_date :
             liveStatus = productList[0].get("liveStatusString")
 
             if liveStatus == "방송예정" :
-                category = '라이브특가정보'
+                category = '라이브특가'
                 sub_category = '11번가쇼핑라이브'
 
                 for item in productList:

@@ -9,11 +9,11 @@ while current_date <= end_date:
     driver = initialize_page(current_date, given_url)
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
-    items = soup.find_all('div', attrs={'class': 'VideoBoxWrapper_wrap_Usbk7 lico-home__sc-e630726c-0 fTvbot BroadcastSideCard_card_tBFMO'})
+    items = soup.find_all('div', attrs={'class': 'VideoBoxWrapper_wrap_Usbk7 VerticalCardList_item_YPN88 CalendarListContent_item_hSue8 BroadcastSideCard_tablet_GUyN4 BroadcastSideCard_has_left_video_time_L739e'})
 
     try:
         for i, item in enumerate(items):
-            category = '라이브특가정보'
+            category = '라이브특가'
             sub_category = '네이버쇼핑라이브'
             brand = item.find('span', class_='ChannelProfile_name_jT9wN').text
             live_url = item.find('a')['href']  

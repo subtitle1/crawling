@@ -14,7 +14,7 @@ while current_date <= end_date:
 
     try:
         for i, item in enumerate(items):
-            category = '라이브특가정보'
+            category = '라이브특가'
             sub_category = '카카오쇼핑라이브'
             live_items = item.select('ul.list_liveguide > li')
 

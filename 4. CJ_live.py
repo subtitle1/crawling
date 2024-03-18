@@ -13,9 +13,9 @@ while current_date <= end_date :
 
     if requestData.status_code == 200 :
         jsonData = requestData.json()
-        productList = jsonData["result"]
+        # productList = jsonData["result"]
 
-        print(productList)
+        print(jsonData)
 
 #         category = "라이브특가정보"
 #         sub_category = "CJONE 홈쇼핑"

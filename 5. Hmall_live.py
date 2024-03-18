@@ -21,7 +21,6 @@ while current_date <= end_date :
 
         try:
             for item in productList:
-
                 input_format = "%Y%m%d%H%M%S"
                 output_format = "%m/%d %H시 %M분"
 

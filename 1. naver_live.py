@@ -1,7 +1,7 @@
 from common.web_imports import *
 from common.common_functions import get_next_date, initialize_dates
 
-today, current_date, end_date = initialize_dates(1, 6)
+today, current_date, end_date = initialize_dates(2, 3)
 df = initialize_columns()
 
 while current_date <= end_date:
@@ -13,9 +13,12 @@ while current_date <= end_date:
 
     try:
         for i, item in enumerate(items):
+
+            print(i, item)
             category = '라이브특가'
             sub_category = '네이버쇼핑라이브'
             brand = item.find('span', class_='ChannelProfile_name_jT9wN').text
+            brand_url = item.find('a', class_='VideoBoxLinkWrapper_wrap_GLkZS BroadcastSideCard_link_profile_11zQW').text
             live_url = item.find('a')['href']  
             
             live_time_string = item.find('time')['datetime'].split('.')

@@ -7,7 +7,7 @@ import time
 import pandas as pd
 
 def initialize_columns():
-    return pd.DataFrame(columns=['카테고리', '서브카테고리', '브랜드명', '브랜드URL', '이벤트정보', '상품유형', '이벤트 기간', '라이브 URL'])
+    return pd.DataFrame(columns=['진행 매체', '브랜드명', '브랜드URL', '이벤트정보', '상품 유형', '라이브 일자', '라이브 URL'])
 
 def initialize_page(current_date, given_url):
     chrome_options = webdriver.ChromeOptions()

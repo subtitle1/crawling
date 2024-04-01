@@ -28,7 +28,7 @@ while current_date <= end_date :
                 # image_url = item['imageUrl']
                 
                 df = pd.concat([df, pd.DataFrame([[category, sub_category, 'brand', '', category, product_category, live_time, live_url]], columns=df.columns)], ignore_index=True)
-                # df = pd.concat([df, pd.DataFrame([[category, sub_category, brand, brand_url, category, '', live_time, live_url]], columns=df.columns)], ignore_index=True)
+                # df = pd.concat([df, pd.DataFrame([[sub_category, brand, brand_url, category, '상품유형 확인', live_time, live_url]], columns=df.columns)], ignore_index=True)
 
         except Exception:
             pass

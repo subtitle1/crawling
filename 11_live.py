@@ -3,7 +3,6 @@ from common.common_functions import get_next_date, initialize_dates
 
 today, current_date, end_date = initialize_dates(1, 14)
 df = initialize_columns()
-# df = pd.DataFrame(columns=['카테고리', '서브카테고리', '브랜드명', '브랜드URL', '이벤트정보', '상품유형', '이벤트 기간', '라이브 URL', '이미지 URL'])
 
 while current_date <= end_date :
     formatted_date = current_date.strftime("%Y%m%d")
@@ -33,8 +32,7 @@ while current_date <= end_date :
                     brand_url = channel_info['linkUrl'] 
                     channel_image_url = channel_info['imageUrl']
 
-                    df = pd.concat([df, pd.DataFrame([[category, sub_category, brand, brand_url, category, '', live_time, live_url]], columns=df.columns)], ignore_index=True)
-                    # df = pd.concat([df, pd.DataFrame([[category, sub_category, brand, brand_url, category, '', live_time, live_url, image_url]], columns=df.columns)], ignore_index=True)
+                    df = pd.concat([df, pd.DataFrame([[sub_category, brand, brand_url, category, '상품유형 확인', live_time, live_url]], columns=df.columns)], ignore_index=True)
 
         except Exception:
             pass

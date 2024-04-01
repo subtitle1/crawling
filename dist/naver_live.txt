@@ -1,0 +1,14 @@
+'powershell'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+배치 파일이 아닙니다.
+'powershell'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+배치 파일이 아닙니다.
+Traceback (most recent call last):
+  File "naver_live.py", line 9, in <module>
+  File "common\web_imports.py", line 20, in initialize_page
+  File "webdriver_manager\chrome.py", line 40, in install
+  File "webdriver_manager\core\manager.py", line 40, in _get_driver_binary_path
+  File "webdriver_manager\drivers\chrome.py", line 32, in get_driver_download_url
+  File "webdriver_manager\core\driver.py", line 48, in get_driver_version_to_download
+  File "webdriver_manager\drivers\chrome.py", line 64, in get_latest_release_version
+AttributeError: 'NoneType' object has no attribute 'split'
+[10244] Failed to execute script 'naver_live' due to unhandled exception!

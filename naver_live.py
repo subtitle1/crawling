@@ -25,7 +25,7 @@ while current_date <= end_date:
             
             live_time_string = item.find('time')['datetime'].split('.')
             splited_time_obj = live_time_string[0]
-            live_time = datetime.strptime(splited_time_obj, "%Y-%m-%dT%H:%M:%S").strftime("%m/%d %H시 %M분")
+            live_time = datetime.strptime(splited_time_obj, "%Y-%m-%dT%ggH:%M:%S").strftime("%m/%d %H시 %M분")
 
             df = pd.concat([df, pd.DataFrame([[sub_category, brand, brand_url, category, '상품유형 확인', live_time, live_url]], columns=df.columns)], ignore_index=True)
 

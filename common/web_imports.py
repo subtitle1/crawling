@@ -15,8 +15,11 @@ def initialize_page(current_date, given_url):
     formatted_date = current_date.strftime("%Y%m%d")
     url = given_url + formatted_date
 
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-    driver.get(url)
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service)
+    
+    # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    # driver.get(url)
 
     previous = driver.execute_script("return document.body.scrollHeight")
     interval = 5

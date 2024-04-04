@@ -1,4 +1,3 @@
-import requests
 import pandas as pd
 
 def initialize_columns(date_format=False):

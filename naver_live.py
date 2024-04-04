@@ -1,5 +1,7 @@
 from common.web_imports import *
 from common.common_functions import get_next_date, initialize_dates
+from bs4 import BeautifulSoup
+from datetime import datetime
 
 today, current_date, end_date = initialize_dates(3, 7)
 df = initialize_columns()
